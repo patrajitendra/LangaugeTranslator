@@ -1,0 +1,31 @@
+
+
+{% extends 'common.html' %}
+
+
+{% block et %}
+    {% load static %}
+    <script src="{% static 'javascript/myfile.js' %}" rel="script">
+
+    </script>
+
+
+    <form action="{% url 'translated' %}" method="post">
+    {% csrf_token %}
+    <div class="mb-3" style="margin: 20px">
+  <label for="exampleFormControlTextarea1" class="form-label">Enter Text</label>
+  <textarea  required placeholder="Any Language" name="text" class="form-control" id="exampleFormControlTextarea1" rows="3" ></textarea>
+</div>
+    <div style="margin: 20px">
+    <select  multiple class="form-select form-select-lg mb-3" aria-label=".form-select-lg example" name="lang">
+  <option selected  value="none">Select Language</option>
+  <option value="hi">Hindi</option>
+  <option value="or">Odia</option>
+  <option value="en">English</option>
+  <option value="bn">Bangali</option>
+  <option value="gu">Gujurati</option>
+</select>
+    </div>
+    <button type="submit" class="btn-success">Translate</button>
+    </form>
+{% endblock %}
